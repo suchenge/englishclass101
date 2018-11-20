@@ -1,29 +1,32 @@
-/*const fs = require("fs");
-const path = require("path");
+import * as fs from "fs";
+import * as path from "path";
+import { Course } from './course';
 
-const Course = require("./course");
+export class CourseList {
+    constructor(){
+    }
 
-class CourseList{
-    constructor() {
-        this.items = [];
-        let classLinePattern = /\d+ .*?\nhttps.*?\n/g;
-        let classInfoPattern = /(\d+) (.*?)\n(https.*?)\n/;
-        let classLevelPath = `${path.resolve("")}//class-list`;
-        let classLevels = fs.readdirSync(classLevelPath);
+    public static get items(): Course[]{
+        let result: Course[] = [];
+        let classLinePattern: RegExp = /\d+ .*?\nhttps.*?\n/g;
+        let classInfoPattern: RegExp = /(\d+) (.*?)\n(https.*?)\n/;
+        let classLevelPath: string = `${path.resolve("")}//class-list`;
+        let classLevels: string[] = fs.readdirSync(classLevelPath);
+        
         classLevels.forEach(classLevel => {
-            let classListContent = fs.readFileSync(`${classLevelPath}//${classLevel}`,'utf-8');
-            let classList = classListContent.match(classLinePattern);
+            let classListContent: string = fs.readFileSync(`${classLevelPath}//${classLevel}`,'utf-8');
+            let classList: RegExpMatchArray = classListContent.match(classLinePattern);
             classList.forEach(classInfo => {
-                let courseInfo = classInfo.match(classInfoPattern);
-                this.items.push(new Course({
-                    index:courseInfo[1],
+                let courseInfo: RegExpMatchArray = classInfo.match(classInfoPattern);
+                result.push(new Course({
+                    level:classLevel.replace(".txt",""),
                     name:courseInfo[2],
                     url:courseInfo[3],
-                    level:classLevel.replace(".txt")
+                    index:Number(courseInfo[1])
                 }));
             });
         });
+
+        return result;
     }
 }
-
-module.exports = CourseList;*/

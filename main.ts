@@ -1,17 +1,15 @@
 import * as path from "path";
+import * as webdriver from "selenium-webdriver";
+import * as chrome from "selenium-webdriver/chrome";
 
-//const webdriver = require("selenium-webdriver");
-//const by = webdriver.By;
-//const chrome = require("selenium-webdriver/chrome");
+const findBy = webdriver.By;
+const chromePath = path.resolve("../chrome");
+const chromDriverPath = `${chromePath}/chromedriver.exe`;
 
-let chromePath = path.resolve("");
-/*
-chrome.setDefaultService(new chrome.ServiceBuilder(`${chromePath}//chromedriver.exe`).build())
+chrome.setDefaultService(new chrome.ServiceBuilder(chromDriverPath).build());
 
 const driver = new webdriver.Builder()
     .withCapabilities(webdriver.Capabilities.chrome())
-    .setChromeOptions(new chrome.Options().addArguments(`--user-data-dir='${chromePath}'`))
+    .setChromeOptions(new chrome.Options().addArguments(`--user-data-dir=${path.resolve("../chrome")}`))
     .build();
 
-driver.get("https://wwww.baidu.com");
-*/

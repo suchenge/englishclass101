@@ -2,16 +2,17 @@
   "compilerOptions": {
     "target": "es6",
     "moduleResolution": "node",
-    "module": "commonjs",
+    "module": "commonJS",
     "preserveConstEnums": true,
-    "declaration": true,
+    "declaration": false,
     "noImplicitAny": false,
     "removeComments": true,
     "noLib": false,
-    "sourceMap": false,
+    "sourceMap": true,
+    "allowJs": false,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "outDir": "./dist"
   },
-  "exclude": ["node_modules"],
+  "exclude": ["node_modules","typings"],
 }

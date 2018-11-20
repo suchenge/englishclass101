@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="060bf6b9-7efc-4084-b572-f4baf0e0edb0" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/class-list/basic.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/class-list/high.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/class-list/medium.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module/course-list.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module/course.js" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/.tmp/" />
+    <ignored path="$PROJECT_DIR$/temp/" />
+    <ignored path="$PROJECT_DIR$/tmp/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="-137874669">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="3" />
+          <entry key="project.open.time.1" value="1" />
+          <entry key="project.open.time.6" value="1" />
+          <entry key="project.open.time.7" value="1" />
+          <entry key="project.opened" value="3" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="js" value="5" />
+          <entry key="json" value="3" />
+          <entry key="txt" value="3" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JSON" value="3" />
+          <entry key="JavaScript" value="5" />
+          <entry key="PLAIN_TEXT" value="3" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="js" value="192" />
+          <entry key="json" value="25" />
+          <entry key="txt" value="20" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JSON" value="25" />
+          <entry key="JavaScript" value="192" />
+          <entry key="PLAIN_TEXT" value="20" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.js.language.service.starts">
+        <counts>
+          <entry key="ESLintLanguageService" value="1" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/module/course-list.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="152">
+              <caret line="8" column="28" lean-forward="true" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/main.js" />
+        <option value="$PROJECT_DIR$/class-list/basic.txt" />
+        <option value="$PROJECT_DIR$/class-list/medium.txt" />
+        <option value="$PROJECT_DIR$/class-list/high.txt" />
+        <option value="$PROJECT_DIR$/module/course.js" />
+        <option value="$PROJECT_DIR$/module/course-list.js" />
+        <option value="$PROJECT_DIR$/.eslintrc.js" />
+        <option value="$PROJECT_DIR$/package.json" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBowerSettings">
+    <node-interpreter value="project" />
+    <bower-package value="" />
+    <bower.json value="" />
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER">
+    <package-json value="$PROJECT_DIR$/package.json" />
+  </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths>
+      <path value="$PROJECT_DIR$/package.json" />
+    </packageJsonPaths>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="39" />
+    <option name="y" value="23" />
+    <option name="width" value="1401" />
+    <option name="height" value="877" />
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="englishclass101" type="b2602c69:ProjectViewProjectNode" />
+              <item name="englishclass101" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="englishclass101" type="b2602c69:ProjectViewProjectNode" />
+              <item name="englishclass101" type="462c0819:PsiDirectoryNode" />
+              <item name="module" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="ignore_missing_gitignore" value="true" />
+    <property name="javascript.nodejs.core.library.configured.version" value="11.2.0" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.jscs" value="true" />
+    <property name="node.js.detected.package.standard" value="true" />
+    <property name="node.js.detected.package.stylelint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.jscs" value="project" />
+    <property name="node.js.path.for.package.standard" value="project" />
+    <property name="node.js.path.for.package.stylelint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="/usr/local/lib/node_modules/eslint" />
+    <property name="node.js.selected.package.jscs" value="/usr/local/lib/node_modules/jscs" />
+    <property name="node.js.selected.package.standard" value="/usr/local/lib/node_modules/eslint" />
+    <property name="node.js.selected.package.stylelint" value="" />
+    <property name="node.js.selected.package.tslint" value="" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="settings.javascript.linters.eslint" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="060bf6b9-7efc-4084-b572-f4baf0e0edb0" name="Default Changelist" comment="" />
+      <created>1542673926223</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1542673926223</updated>
+      <workItem from="1542673927550" duration="1173000" />
+      <workItem from="1542676266429" duration="1411000" />
+      <workItem from="1542678056071" duration="1093000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="3677000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="39" y="23" width="1401" height="877" extended-state="0" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23943663" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="npm" order="2" side_tool="true" />
+      <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32917705" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Tail" order="7" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="11" />
+      <window_info anchor="bottom" id="Regex Tester" order="12" weight="0.32917705" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Key Promoter X" order="3" weight="0.32987398" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/class-list/high.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="3" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/class-list/medium.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="4" column="3" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/class-list/basic.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/course.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" column="13" lean-forward="true" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.eslintrc.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5054">
+          <caret line="266" column="3" selection-start-line="266" selection-start-column="3" selection-end-line="266" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/course-list.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" column="28" lean-forward="true" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="regexState">
+    <option name="map">
+      <map>
+        <entry key="flags" value="0" />
+        <entry key="mode" value="0" />
+        <entry key="regex" value="(.* )" />
+        <entry key="text" value="8 She Will Be Sitting Close By. https://www.englishclass101.com/lesson/beginner-lesson-16-she-will-be-sitting-close-by/?lp=70 9 Yes , I Will Come With You . https://www.englishclass101.com/lesson/beginner-lesson-20-yes-i-will-come-with-you/?lp=70 10.&#9;Introducing a friend in English. https://www.englishclass101.com/lesson/25-introducing-a-friend/?lp=80 11.&#9;He was Drinking So Much Water ! ( Daily Conversations in English:   Beginner.           Lesson 19 ) https://www.englishclass101.com/lesson/beginner-lesson-19-he-was-drinkking-so-much-water/?lp=70 12.&#9;Who are the Professors? ( Daily Conversations in English:   Beginner.          Lesson 21 ) https://www.englishclass101.com/lesson/beginner-lesson-21-who-are-the-professors/?lp=70 13.&#9;Hurry Up! ( Daily Conversations in English:   Beginner.        Lesson 22 ) https://www.englishclass101.com/lesson/beginner-lesson-22-hurry-up/?lp=70 14.&#9;Are You a Slave to American Coffee? ( Washington D.C. Interns:  Upper Intermediate.    Lesson 7 ) https://www.englishclass101.com/lesson/upper-intermediate-7-are-you-a-slave-to-american-coffee/?lp=82 15.&#9;English Pickup Lines. ( Washington D.C. Interns:  Upper Intermediate.           Lesson 10 ) https://www.englishclass101.com/lesson/upper-intermediate-10-english-pickup-lines/?lp=82 16.&#9;Making Tough Choices in the US. ( Washington D.C. Interns: Upper Intermediate.          Lesson 13 ) https://www.englishclass101.com/lesson/upper-intermediate-13-new-lesson/?lp=82 17.&#9;That Tall Guy From Italy. ( Daily Conversations in English:   Beginner.          Lesson 24 ) https://www.englishclass101.com/lesson/beginner-lesson-24-that-tall-guy-from-italy/?lp=70 18.&#9;Describing People. (casual-conversations-lower-intermediate/.        Lesson 14 ) https://www.englishclass101.com/lesson/lower-intermediate-lesson-14-describing-people/?lp=80 19.&#9;Never Say That Again in English. (casual-conversations-lower-intermediate/.        Lesson 20 ) https://www.englishclass101.com/lesson/lower-intermediate-lesson-20-prohibited-from/?lp=80 20.&#9;Why Are Your Friends Asking You in English What to Wear This Weekend ? ( Out of Customs Into Parties: Intermediate English.   Lesson 25 ) https://www.englishclass101.com/lesson/intermediate-lesson-25-time-to-unwind/?lp=81 21.&#9;What ‘s  Wrong With Working for a British Bank. ( Express Yourself: Upper Intermediate British English.    Lesson 17 ) https://www.englishclass101.com/lesson/upper-intermediate-s2-17-whats-wrong-with-working-for-a-british-bank/?lp=83 22.&#9;Talking About Your Weakness in English. ( Express Yourself:  Upper Intermediate British English.   Lesson 3 ) https://www.englishclass101.com/lesson/upper-intermediate-s2-3-talking-about-your-weaknesses-in-english/?lp=83 23.&#9;Knowing What’s Important in a British Workplace. ( Express Yourself: Upper Intermediate British English.        Lesson 7 ) https://www.englishclass101.com/lesson/upper-intermediate-s2-7-knowing-whats-important-in-a-british-workplace/?lp=83 24.&#9;A Superstitious Brit. ( Express Yourself: Upper Intermediate British English.         Lesson 8 ) https://www.englishclass101.com/lesson/upper-intermediate-s2-8-a-superstitious-brit/?lp=83 25.&#9;Describing Your First Day on the Job in English. ( Express Yourself:  Upper Intermediate British English.      Lesson 9 ) https://www.englishclass101.com/lesson/upper-intermediate-s2-9-describing-your-first-day-on-the-job-in-english/?lp=83 26.  Are You a Fan of English Football ? ( Express Yourself:  Upper Intermediate British English.    Lesson 10 ) https://www.englishclass101.com/lesson/upper-intermediate-s2-10-are-you-a-fan-of-english-football/?lp=83 27.&#9;You ‘Have to ‘ Study This English Lesson ! ( Out of Customs Into Parties: Intermediate English.       Lesson 8 ) https://www.englishclass101.com/lesson/intermediate-lesson-8-opening-a-bank-account/?lp=81 28.&#9;I Should Have Gotten the American Rental Car Insurance. ( Out of Customs Into Parties: Intermediate English.      Lesson 5 ) https://www.englishclass101.com/lesson/intermediate-lesson-5-renting-a-car/?lp=81 29.&#9;Mind Your Manners in English  ! ( Express Yourself: Upper Intermediate British English.    Lesson 22 ) https://www.englishclass101.com/lesson/upper-intermediate-s2-22-mind-your-manners-in-britain/?lp=83 30.&#9;To Boldly Look to the Future in English. https://www.englishclass101.com/lesson/upper-intermediate-s2-25-to-boldly-look-to-the-future-in-britain/?lp=83 " />
+      </map>
+    </option>
+  </component>
+</project>

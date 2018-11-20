@@ -22,16 +22,16 @@ export class Ware {
 
     protected save(): void{
         let path = this._course.path + "/" + this._name;
-        if (this._path) path = this._path;
- 
-        if (!this._url.startsWith("http")) this._url = this._domanin + this._url;
 
-        if (fs.existsSync(path)) fs.rmdirSync(path);
+        if (this._path) path = this._path;
+        if (!this._url.startsWith("http")) this._url = this._domanin + this._url;
+        if (fs.existsSync(path)) fs.unlinkSync(path);
 
         console.log("download:" + this._url);
+
         let fileBody = Utilites.getUrl(this._url);
+        
         fs.writeFileSync(path, fileBody);
-        //request.get(this._url).pipe(fs.createWriteStream(path));
         console.log("save:" + path);
     }
 }

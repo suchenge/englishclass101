@@ -47,4 +47,21 @@ export class Utilites{
             return body;
         }
     }
+
+    public static findFile(path: string, numberMillis: number): void{
+        Utilites.sleep(numberMillis);
+        while(true){
+            if (fs.existsSync(path)) return;
+            else Utilites.findFile(path, numberMillis);
+        }
+    }
+
+    public static sleep(numberMillis: number): void{
+        let now = new Date();
+        let exitTime = now.getTime() + numberMillis;
+        while (true) {
+            now = new Date();
+            if (now.getTime() > exitTime) return;
+        }
+    }
 }

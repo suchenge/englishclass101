@@ -1,25 +1,39 @@
-import * as webdriver from 'selenium-webdriver';
 import * as fs from "fs";
+import * as path from "path";
+import * as webdriver from 'selenium-webdriver';
 
 import { Ware } from './ware';
 import { Course } from './course';
 import { Utilites } from './utilites';
 
 export class Note extends Ware{
+    private downLoadPath: string = path.resolve("/Users/Vito/Downloads");
+
     constructor(driver: webdriver.WebDriver, course: Course){
         super(driver, course);
     }
 
     public build(): void{
         this._driver.findElement(webdriver.By.xpath("//div[@id='pdfs']/ul/li[1]/a")).then(a => {
-            a.click().then(() => {
-                
+            a.getAttribute("href").then(html => {
+                console.log(html);
+                /*this._driver.executeScript("arguments[0].click()", a).then(() => {
+                    Utilites.sleep(5000);
+                    a.getAttribute("href").then(href => {
+                        let downloadFileNameArray = href.split("/");
+                        let downloadFileName = downloadFileNameArray[downloadFileNameArray.length - 1];
+                        let downloadFilePath = this.downLoadPath + "/" + downloadFileName;
+    
+                        Utilites.findFile(downloadFilePath, 5000);
+                        let noteName = this._course.title + ".pdf";
+                        let notePath = this._course.path + "/" + noteName;
+    
+                        if (fs.existsSync(notePath)) fs.unlinkSync(notePath);
+    
+                        fs.renameSync(downloadFilePath, notePath);
+                    });
+                });*/
             });
-            /*li.getAttribute("href").then(href => {
-                this._url = href;
-                this._name = this._course.title + ".pdf";
-                this.save();
-            });*/
         });
     }
 }

@@ -42,9 +42,9 @@ export class Course{
         if (!fs.existsSync(this._path)) fs.mkdirSync(this._path);
 
         driver.get(this._url).then(() => {
-            //new Note(driver, this).build();
-            //new Dialog(driver, this).build();
-            //new Dialogue(driver, this).build();
+            new Note(driver, this).build();
+            new Dialog(driver, this).build();
+            new Dialogue(driver, this).build();
             new Vocabulary(driver, this).build();
         });
     } 

@@ -15,9 +15,8 @@ class Runner {
             .build();
     }
     run() {
-        let count = 0;
-        let courses = new course_list_1.CourseList().items;
-        courses[0].resolve(this.driver);
+        let courses = new course_list_1.CourseList().items.splice(0, 3);
+        courses.forEach(course => course.resolve(this.driver));
     }
 }
 new Runner().run();

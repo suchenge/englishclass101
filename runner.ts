@@ -3,7 +3,6 @@ import * as selenium from "selenium-webdriver";
 import * as chrome from "selenium-webdriver/chrome";
 
 import { CourseList } from './module/course-list';
-import { Course } from './module/course';
 
 class Runner{
     private chromePath: string = path.resolve("../chrome");
@@ -21,11 +20,11 @@ class Runner{
     }
 
     public run(): void{
-        let count: number = 0;
-        let courses = new CourseList().items;
-
-        courses[0].resolve(this.driver);
+        let courses = new CourseList().items.splice(0,3);
+        
+        courses.forEach(course => course.resolve(this.driver));
     }
+
 }
 
 new Runner().run();

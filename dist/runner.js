@@ -8,7 +8,6 @@ class Runner {
     constructor() {
         this.chromePath = path.resolve("../chrome");
         this.chromDriverPath = `${this.chromePath}/chromedriver.exe`;
-        this.findBy = selenium.By;
         chrome.setDefaultService(new chrome.ServiceBuilder(this.chromDriverPath).build());
         this.driver = new selenium.Builder()
             .withCapabilities(selenium.Capabilities.chrome())
@@ -18,7 +17,7 @@ class Runner {
     run() {
         let count = 0;
         let courses = new course_list_1.CourseList().items;
-        courses[1].resolve(this.driver, this.findBy);
+        courses[0].resolve(this.driver);
     }
 }
 new Runner().run();

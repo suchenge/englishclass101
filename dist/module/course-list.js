@@ -11,12 +11,16 @@ class CourseList {
         let classLevelPath = `${path.resolve("")}//class-list`;
         let classLevels = fs.readdirSync(classLevelPath);
         classLevels.forEach(classLevel => {
+            let level = classLevel.replace(".txt", "");
+            let levelPath = `${path.resolve("")}/course/${level}`;
+            if (!fs.existsSync(levelPath))
+                fs.mkdirSync(levelPath);
             let classListContent = fs.readFileSync(`${classLevelPath}//${classLevel}`, 'utf-8');
             let classList = classListContent.match(classLinePattern);
             classList.forEach(classInfo => {
                 let courseInfo = classInfo.match(classInfoPattern);
                 this._item.push(new course_1.Course({
-                    level: classLevel.replace(".txt", ""),
+                    level: level,
                     name: courseInfo[2],
                     url: courseInfo[3],
                     index: Number(courseInfo[1])

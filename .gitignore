@@ -2,3 +2,12 @@ node_modules/
 npm-debug.log
 log/
 typings/
+course/
+dist
+dist/module
+dist/module/course-ware.js
+dist/module/course-ware.js.map
+dist/module/dialogue.js
+dist/module/dialogue.js.map
+dist/module/vocabulary.js
+dist/module/vocabulary.js.map

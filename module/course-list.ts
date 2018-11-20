@@ -12,12 +12,16 @@ export class CourseList {
         let classLevels: string[] = fs.readdirSync(classLevelPath);
         
         classLevels.forEach(classLevel => {
+            let level = classLevel.replace(".txt", "");
+            let levelPath = `${path.resolve("")}/course/${level}`;
+            if (!fs.existsSync(levelPath)) fs.mkdirSync(levelPath);
+
             let classListContent: string = fs.readFileSync(`${classLevelPath}//${classLevel}`,'utf-8');
             let classList: RegExpMatchArray = classListContent.match(classLinePattern);
             classList.forEach(classInfo => {
                 let courseInfo: RegExpMatchArray = classInfo.match(classInfoPattern);
                 this._item.push(new Course({
-                    level:classLevel.replace(".txt",""),
+                    level:level,
                     name:courseInfo[2],
                     url:courseInfo[3],
                     index:Number(courseInfo[1])

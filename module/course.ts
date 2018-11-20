@@ -1,4 +1,4 @@
-import * as webdriver from 'selenium-webdriver';
+import * as selenium from 'selenium-webdriver';
 
 export class Course{
     private _level: string;
@@ -13,23 +13,9 @@ export class Course{
         this._index = courseInfo.index;
     }
 
-    public get level(): string{
-        return this._level;
-    }
+    public resolve(driver: selenium.WebDriver, by: selenium.By): void{
+        driver.get(this._url).then(() => {
 
-    public get name(): string{
-        return this._name;
-    }
-
-    public get url(): string {
-        return this._url;
-    }
-
-    public get index(): number{
-        return this._index;
-    }
-
-    public resolve(driver: webdriver.WebDriver, by: webdriver.By){
-        //driver
+        });
     }
 }

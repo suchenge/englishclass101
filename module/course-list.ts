@@ -3,11 +3,9 @@ import * as path from "path";
 import { Course } from './course';
 
 export class CourseList {
-    constructor(){
-    }
+    private _item: Course[] = [];
 
-    public static get items(): Course[]{
-        let result: Course[] = [];
+    constructor(){
         let classLinePattern: RegExp = /\d+ .*?\nhttps.*?\n/g;
         let classInfoPattern: RegExp = /(\d+) (.*?)\n(https.*?)\n/;
         let classLevelPath: string = `${path.resolve("")}//class-list`;
@@ -18,7 +16,7 @@ export class CourseList {
             let classList: RegExpMatchArray = classListContent.match(classLinePattern);
             classList.forEach(classInfo => {
                 let courseInfo: RegExpMatchArray = classInfo.match(classInfoPattern);
-                result.push(new Course({
+                this._item.push(new Course({
                     level:classLevel.replace(".txt",""),
                     name:courseInfo[2],
                     url:courseInfo[3],
@@ -26,7 +24,9 @@ export class CourseList {
                 }));
             });
         });
+    }
 
-        return result;
+    public get items(): Course[]{
+        return this._item;
     }
 }

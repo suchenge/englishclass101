@@ -14,8 +14,10 @@ export class Example extends Ware{
         this._webElement = webElement;
     }
 
-    public Build(): void{
-        this._webElement.findElements(webdriver.By.tagName("td")).then(exampleInfo => {
+    private get(webElements: webdriver.WebElement[], path: string, callback: any): void{
+        let element: webdriver.WebElement = webElements[webElements.length - 1];
+
+        element.findElements(webdriver.By.tagName("td")).then(exampleInfo => {
             exampleInfo[1].findElement(webdriver.By.tagName("button")).then(exampleButton => {
                 exampleButton.getAttribute("data-src").then(exampleMp3 => {
                     exampleInfo[2].findElement(webdriver.By.tagName("span")).then(exampleSpan => {
@@ -25,10 +27,20 @@ export class Example extends Ware{
                             this._path = this._parentPath + this._name + ".mp3";
 
                             this.save();
+
+                            webElements.pop();
+                            if (webElements.length == 0) callback();
+                            else this.get(webElements, path, callback);
                         });
                     });
                 });
             });
+        });
+    }
+
+    public build(): Promise<void>{
+        return new Promise<void>((resolve, reject) => {
+            this._webElement.findElements(webdriver.By.xpath("table/tbody/tr")).then(examples => this.get(examples, this._parentPath, resolve));
         });
     }
 }

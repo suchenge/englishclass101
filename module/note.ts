@@ -13,10 +13,18 @@ export class Note extends Ware{
         super(driver, course);
     }
 
-    public build(): void{
-        this._driver.findElement(webdriver.By.xpath("//div[@id='pdfs']/ul/li[1]/a")).then(a => {
-            a.getAttribute("href").then(html => {
-                console.log(html);
+    public build(): Promise<void>{
+        return new Promise<void>((resolve, reject) => {
+            this._driver.findElement(webdriver.By.xpath("//div[@id='pdfs']/ul/li[1]/a")).then(a => {
+                a.getAttribute("href").then(html => {
+                    console.log(html);
+                    resolve();
+                });
+            });
+        });
+        //this._driver.findElement(webdriver.By.xpath("//div[@id='pdfs']/ul/li[1]/a")).then(a => {
+        //    a.getAttribute("href").then(html => {
+                //console.log(html);
                 /*this._driver.executeScript("arguments[0].click()", a).then(() => {
                     Utilites.sleep(5000);
                     a.getAttribute("href").then(href => {
@@ -33,7 +41,7 @@ export class Note extends Ware{
                         fs.renameSync(downloadFilePath, notePath);
                     });
                 });*/
-            });
-        });
+         //   });
+        //});
     }
 }

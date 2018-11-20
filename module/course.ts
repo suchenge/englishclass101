@@ -38,14 +38,16 @@ export class Course{
         return this._url;
     }
 
-    public resolve(driver: selenium.WebDriver): void{
-        if (!fs.existsSync(this._path)) fs.mkdirSync(this._path);
+    public resolve(driver: selenium.WebDriver): Promise<void>{
+        return new Promise<void>((resolve, reject) => {
+            if (!fs.existsSync(this._path)) fs.mkdirSync(this._path);
 
-        driver.get(this._url).then(() => {
-            new Note(driver, this).build();
-            new Dialog(driver, this).build();
-            new Dialogue(driver, this).build();
-            new Vocabulary(driver, this).build();
+            driver.get(this._url).then(() => console.log(`open:${this._url}`))
+                                 //.then(() => new Note(driver, this).build())
+                                 //.then(() => new Dialog(driver, this).build())
+                                 //.then(() => new Dialogue(driver, this).build())
+                                 .then(() => new Vocabulary(driver, this).build())
+                                 .then(() => resolve());
         });
     } 
 }

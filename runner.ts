@@ -20,10 +20,12 @@ class Runner{
     }
 
     public async run(): Promise<void>{
-        let courses = new CourseList().items.splice(0,3);
+        let courses = new CourseList().items;
+
         for(let course of courses){
             await course.resolve(this.driver);
         }
+        
         return new Promise<void>((reslove,reject) => reslove(this.driver.close()));
     }
 }

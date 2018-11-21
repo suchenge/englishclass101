@@ -27,10 +27,14 @@ export class Vocabulary extends Ware{
                             if (!fs.existsSync(wordPath)) fs.mkdirSync(wordPath);
                             this._path = wordPath + this._name + ".mp3";
 
-                            //this.save();
+                            this.save();
 
                             span[3].findElements(webdriver.By.xpath("table/tbody/tr")).then(examples => {
-                                this.exampleElements = this.exampleElements.concat({elements:examples, parentPath:wordPath});
+                                let tmpExamples: any[] = [];
+                                examples.forEach(example => {
+                                    tmpExamples.push({element:example, parentPath: wordPath});
+                                });
+                                this.exampleElements = this.exampleElements.concat(tmpExamples);
 
                                 webElements.pop();
                                 if (webElements.length == 0) callback(this.exampleElements);

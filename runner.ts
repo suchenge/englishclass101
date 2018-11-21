@@ -19,14 +19,13 @@ class Runner{
                             .build();
     }
 
-    public run(): void{
+    public async run(): Promise<void>{
         let courses = new CourseList().items.splice(0,3);
-        
-        courses[0].resolve(this.driver)
-                    .then(() => courses[1].resolve(this.driver))
-                    .then(() => this.driver.close());
+        for(let course of courses){
+            await course.resolve(this.driver);
+        }
+        return new Promise<void>((reslove,reject) => reslove(this.driver.close()));
     }
-
 }
 
 new Runner().run();

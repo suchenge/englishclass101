@@ -3,6 +3,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const path = require("path");
 const fs = require("fs");
 const utilites_1 = require("./utilites");
+const note_1 = require("./note");
+const dialog_1 = require("./dialog");
+const dialogue_1 = require("./dialogue");
 const vocabulary_1 = require("./vocabulary");
 const example_1 = require("./example");
 class Course {
@@ -28,8 +31,11 @@ class Course {
             if (!fs.existsSync(this._path))
                 fs.mkdirSync(this._path);
             driver.get(this._url).then(() => console.log(`open:${this._url}`))
+                .then(() => new note_1.Note(driver, this).build())
+                .then(() => new dialog_1.Dialog(driver, this).build())
+                .then(() => new dialogue_1.Dialogue(driver, this).build())
                 .then(() => new vocabulary_1.Vocabulary(driver, this).build())
-                .then(info => new example_1.Example(driver, this, info.elements).build())
+                .then(info => new example_1.Example(driver, this, info).build())
                 .then(() => resolve());
         });
     }

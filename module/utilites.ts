@@ -36,10 +36,10 @@ export class Utilites{
 
     public static getUrl(url: string): any{
         let res = syncRequest.default('GET', url, {
-            timeout: 20000,
+            timeout: 200000,
             retry: true,
-            retryDelay: 10000,
-            maxRetries: 3
+            retryDelay: 100000,
+            maxRetries: 5
         });
         if (res.statusCode == 200) {
             let body = res.body;

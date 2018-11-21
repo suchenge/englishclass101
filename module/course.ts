@@ -8,7 +8,6 @@ import { Dialog } from './dialog';
 import { Dialogue } from './dialogue';
 import { Vocabulary } from "./vocabulary";
 import { Example } from './example';
-import { ExampleInfo } from './example-info';
 
 export class Course{
     private _level: string;
@@ -45,11 +44,11 @@ export class Course{
             if (!fs.existsSync(this._path)) fs.mkdirSync(this._path);
 
             driver.get(this._url).then(() => console.log(`open:${this._url}`))
-                                 //.then(() => new Note(driver, this).build())
-                                 //.then(() => new Dialog(driver, this).build())
-                                 //.then(() => new Dialogue(driver, this).build())
+                                 .then(() => new Note(driver, this).build())
+                                 .then(() => new Dialog(driver, this).build())
+                                 .then(() => new Dialogue(driver, this).build())
                                  .then(() => new Vocabulary(driver, this).build())
-                                 .then(info => new Example(driver, this, info.elements).build())
+                                 .then(info => new Example(driver, this, info).build())
                                  .then(() => resolve());
         });
     } 

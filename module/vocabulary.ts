@@ -1,13 +1,13 @@
 import * as fs from "fs";
-import { resolve } from "path";
 import * as webdriver from 'selenium-webdriver';
 
 import { Ware } from './ware';
 import { Course } from './course';
-import { Example } from './example';
 import { Utilites } from './utilites';
 
 export class Vocabulary extends Ware{
+    private exampleElements: any[] = [];
+
     constructor(driver: webdriver.WebDriver, course: Course){
         super(driver, course);
     }
@@ -20,18 +20,22 @@ export class Vocabulary extends Ware{
                 button.getAttribute("data-src").then(mp3 => {
                     tds[4].findElements(webdriver.By.tagName("span")).then(span => {
                         span[0].getText().then(name => {
-                            this._name = Utilites.formatTitle(name);
+                            this._name = Utilites.formatTitle(name).replace(/\(.*?\)/,"");
                             this._url = mp3;
                             
                             let wordPath = path + this._name + "/";
                             if (!fs.existsSync(wordPath)) fs.mkdirSync(wordPath);
                             this._path = wordPath + this._name + ".mp3";
 
-                            this.save();
+                            //this.save();
 
-                            webElements.pop();
-                            if (webElements.length == 0) callback();
-                            else this.get(webElements, path, callback);
+                            span[3].findElements(webdriver.By.xpath("table/tbody/tr")).then(examples => {
+                                this.exampleElements = this.exampleElements.concat({elements:examples, parentPath:wordPath});
+
+                                webElements.pop();
+                                if (webElements.length == 0) callback(this.exampleElements);
+                                else this.get(webElements, path, callback);
+                            });
                         });
                     });
                 });

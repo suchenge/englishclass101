@@ -6,16 +6,15 @@ import { Utilites } from './utilites';
 
 export class Example extends Ware{
     private _parentPath: string;
-    private _webElement: webdriver.WebElement;
+    private _webElements: any[];
 
-    constructor(driver: webdriver.WebDriver, course: Course, webElement: webdriver.WebElement, parentPath: string){
+    constructor(driver: webdriver.WebDriver, course: Course, webElements: any[]){
         super(driver, course);
-        this._parentPath = parentPath;
-        this._webElement = webElement;
+        this._webElements = webElements;
     }
 
-    private get(webElements: webdriver.WebElement[], path: string, callback: any): void{
-        let element: webdriver.WebElement = webElements[webElements.length - 1];
+    private get(webElements: any[], callback: any): void{
+        let element: any = webElements[webElements.length - 1];
 
         element.findElements(webdriver.By.tagName("td")).then(exampleInfo => {
             exampleInfo[1].findElement(webdriver.By.tagName("button")).then(exampleButton => {
@@ -40,7 +39,8 @@ export class Example extends Ware{
 
     public build(): Promise<void>{
         return new Promise<void>((resolve, reject) => {
-            this._webElement.findElements(webdriver.By.xpath("table/tbody/tr")).then(examples => this.get(examples, this._parentPath, resolve));
+            this.get(this._webElements, resolve);
+            //this._webElement.findElements(webdriver.By.xpath("table/tbody/tr")).then(examples => this.get(examples, this._parentPath, resolve));
         });
     }
 }

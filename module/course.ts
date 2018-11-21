@@ -7,6 +7,8 @@ import { Note } from './note';
 import { Dialog } from './dialog';
 import { Dialogue } from './dialogue';
 import { Vocabulary } from "./vocabulary";
+import { Example } from './example';
+import { ExampleInfo } from './example-info';
 
 export class Course{
     private _level: string;
@@ -47,6 +49,7 @@ export class Course{
                                  //.then(() => new Dialog(driver, this).build())
                                  //.then(() => new Dialogue(driver, this).build())
                                  .then(() => new Vocabulary(driver, this).build())
+                                 .then(info => new Example(driver, this, info.elements).build())
                                  .then(() => resolve());
         });
     } 

@@ -4,6 +4,7 @@ const path = require("path");
 const fs = require("fs");
 const utilites_1 = require("./utilites");
 const vocabulary_1 = require("./vocabulary");
+const example_1 = require("./example");
 class Course {
     constructor(courseInfo) {
         this._level = courseInfo.level;
@@ -28,6 +29,7 @@ class Course {
                 fs.mkdirSync(this._path);
             driver.get(this._url).then(() => console.log(`open:${this._url}`))
                 .then(() => new vocabulary_1.Vocabulary(driver, this).build())
+                .then(info => new example_1.Example(driver, this, info.elements).build())
                 .then(() => resolve());
         });
     }

@@ -28,18 +28,24 @@ export class Vocabulary extends Ware{
                             this._path = wordPath + this._name + ".mp3";
 
                             this.save();
+                            
+                            if (span.length >= 4){
+                                span[3].findElements(webdriver.By.xpath("table/tbody/tr")).then(examples => {
+                                    let tmpExamples: any[] = [];
+                                    examples.forEach(example => {
+                                        tmpExamples.push({element:example, parentPath: wordPath});
+                                    });
+                                    this.exampleElements = this.exampleElements.concat(tmpExamples);
 
-                            span[3].findElements(webdriver.By.xpath("table/tbody/tr")).then(examples => {
-                                let tmpExamples: any[] = [];
-                                examples.forEach(example => {
-                                    tmpExamples.push({element:example, parentPath: wordPath});
+                                    webElements.pop();
+                                    if (webElements.length == 0) callback(this.exampleElements);
+                                    else this.get(webElements, path, callback);
                                 });
-                                this.exampleElements = this.exampleElements.concat(tmpExamples);
-
+                            }else{
                                 webElements.pop();
                                 if (webElements.length == 0) callback(this.exampleElements);
                                 else this.get(webElements, path, callback);
-                            });
+                            }
                         });
                     });
                 });

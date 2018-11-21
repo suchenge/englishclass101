@@ -41,7 +41,8 @@ export class Example extends Ware{
 
     public build(): Promise<void>{
         return new Promise<void>((resolve, reject) => {
-            this.get(this._exampleInfos, resolve);
+            if (this._exampleInfos.length > 0) this.get(this._exampleInfos, resolve);
+            else resolve();
         });
     }
 }

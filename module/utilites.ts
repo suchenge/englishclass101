@@ -18,7 +18,7 @@ export class Utilites{
         str = str.replace(/\|/g, '');
         str = str.replace(/\./g, '');
         str = str.replace(/\？/g, '');
-        return str;
+        return str.trim();
     }
 
     public static deleteDir(path: string): void{

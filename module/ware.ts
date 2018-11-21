@@ -29,9 +29,9 @@ export class Ware {
 
         console.log("download:" + this._url);
 
-        //let fileBody = Utilites.getUrl(this._url);
+        let fileBody = Utilites.getUrl(this._url);
         
-        fs.writeFileSync(path, null);
+        fs.writeFileSync(path, fileBody);
         console.log("save:" + path);
     }
 }

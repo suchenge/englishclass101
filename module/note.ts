@@ -19,13 +19,13 @@ export class Note extends Ware{
                 a.getAttribute("href").then(html => {
                     //console.log(html);
                     this._driver.executeScript("arguments[0].click()", a).then(() => {
-                        Utilites.sleep(5000);
+                        Utilites.sleep(1000);
                         a.getAttribute("href").then(href => {
                             let downloadFileNameArray = href.split("/");
                             let downloadFileName = downloadFileNameArray[downloadFileNameArray.length - 1];
                             let downloadFilePath = this.downLoadPath + "/" + downloadFileName;
         
-                            Utilites.findFile(downloadFilePath, 5000);
+                            Utilites.findFile(downloadFilePath, 1000);
                             let noteName = this._course.title + ".pdf";
                             let notePath = this._course.path + "/" + noteName;
         

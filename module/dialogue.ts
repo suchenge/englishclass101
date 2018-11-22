@@ -15,22 +15,29 @@ export class Dialogue extends Ware{
         let element: webdriver.WebElement = webElements[webElements.length - 1];
     
         element.findElements(webdriver.By.tagName("td")).then(tds => {
-            tds[1].findElement(webdriver.By.tagName("button")).then(button => {
-                button.getAttribute("data-src").then(mp3 => {
-                    tds[2].getText().then(sufix => {
-                        tds[3].getText().then(title => {
-                            this._name = `${index}.${sufix.replace(":","_")}${Utilites.formatTitle(title)}`;
-                            this._url = mp3;
-                            this._path = path + this._name + ".mp3";
-                            this.save();
+            if (tds.length < 4){
+                webElements.pop();
+                if (webElements.length == 0) callback();
+                else this.get(webElements, path, callback);
+            }
+            else{
+                tds[1].findElement(webdriver.By.tagName("button")).then(button => {
+                    button.getAttribute("data-src").then(mp3 => {
+                        tds[2].getText().then(sufix => {
+                            tds[3].getText().then(title => {
+                                this._name = `${index}.${sufix.replace(":","_")}${Utilites.formatTitle(title)}`;
+                                this._url = mp3;
+                                this._path = path + this._name + ".mp3";
+                                this.save();
 
-                            webElements.pop();
-                            if (webElements.length == 0) callback();
-                            else this.get(webElements, path, callback);
+                                webElements.pop();
+                                if (webElements.length == 0) callback();
+                                else this.get(webElements, path, callback);
+                            });
                         });
                     });
                 });
-            });
+            }
         });
     }
 

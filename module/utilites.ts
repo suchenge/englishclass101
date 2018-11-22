@@ -18,6 +18,9 @@ export class Utilites{
         str = str.replace(/\|/g, '');
         str = str.replace(/\./g, '');
         str = str.replace(/\？/g, '');
+        
+        if(str.length > 50) str = str.slice(0, 50);
+        
         return str.trim();
     }
 

@@ -35,6 +35,10 @@ export class Example extends Ware{
                         });
                     });
                 });
+            }, err => {
+                exampleInfos.pop();
+                if (exampleInfos.length == 0) callback();
+                else this.get(exampleInfos, callback);
             });
         });
     }

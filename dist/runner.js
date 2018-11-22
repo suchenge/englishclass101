@@ -24,7 +24,7 @@ class Runner {
     }
     run() {
         return __awaiter(this, void 0, void 0, function* () {
-            let courses = new course_list_1.CourseList().items;
+            let courses = new course_list_1.CourseList().items.splice(8);
             for (let course of courses) {
                 yield course.resolve(this.driver);
             }

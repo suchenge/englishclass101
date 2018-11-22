@@ -21,7 +21,7 @@ class Runner{
 
     public async run(): Promise<void>{
         //let courses = new CourseList().items;
-        let courses = new CourseList().items;
+        let courses = new CourseList().items.splice(8);
         
         for(let course of courses){
             await course.resolve(this.driver);

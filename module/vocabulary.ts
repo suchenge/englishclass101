@@ -29,28 +29,37 @@ export class Vocabulary extends Ware{
 
                             this.save();
                             
-                            if (span.length >= 4){
-                                span[3].findElements(webdriver.By.xpath("table/tbody/tr")).then(examples => {
-                                    let tmpExamples: any[] = [];
-                                    examples.forEach(example => {
-                                        tmpExamples.push({element:example, parentPath: wordPath});
-                                    });
-                                    this.exampleElements = this.exampleElements.concat(tmpExamples);
-
-                                    webElements.pop();
-                                    if (webElements.length == 0) callback(this.exampleElements);
-                                    else this.get(webElements, path, callback);
-                                });
-                            }else{
-                                webElements.pop();
-                                if (webElements.length == 0) callback(this.exampleElements);
-                                else this.get(webElements, path, callback);
-                            }
+                            if (span.length >= 4) this.extractExample(span, webElements, wordPath, path, callback);
+                            else this.exist(webElements, path, callback);
                         });
                     });
                 });
             });
         });
+    }
+
+    private extractExample(exampleParentElements: webdriver.WebElement[], webElements: webdriver.WebElement[]
+                          , wordPath: string, path: string, callback: any, elementIndex: number = 2){
+        exampleParentElements[elementIndex].findElements(webdriver.By.xpath("table/tbody/tr")).then(examples => {
+            if (examples.length <= 0 && elementIndex == 2) {
+                this.extractExample(exampleParentElements, webElements, wordPath, path, callback, 3);
+            }
+            else{
+                let tmpExamples: any[] = [];
+                examples.forEach(example => {
+                    tmpExamples.push({element:example, parentPath: wordPath});
+                });
+                this.exampleElements = this.exampleElements.concat(tmpExamples);
+
+                this.exist(webElements, path, callback);
+            }
+        });
+    }
+
+    private exist(webElements: webdriver.WebElement[], path: string, callback: any){
+        webElements.pop();
+        if (webElements.length == 0) callback(this.exampleElements);
+        else this.get(webElements, path, callback);
     }
 
     public build(): Promise<void>{

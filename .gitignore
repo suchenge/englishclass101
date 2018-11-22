@@ -3,6 +3,7 @@ npm-debug.log
 log/
 typings/
 course/
+bak/
 dist
 dist/module
 dist/module/course-ware.js

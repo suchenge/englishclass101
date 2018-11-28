@@ -6,8 +6,8 @@ const course_1 = require("./course");
 class CourseList {
     constructor() {
         this._item = [];
-        let classLinePattern = /\d+ .*?\nhttps.*?\n/g;
-        let classInfoPattern = /(\d+) (.*?)\n(https.*?)\n/;
+        let classLinePattern = /\d+ .*?[\r|\n]{1}https.*[\r|\n]{0,1}/m;
+        let classInfoPattern = /(\d+) (.*?)[\r|\n](https.*?)[\r|\n]/;
         let classLevelPath = `${path.resolve("")}//class-list`;
         let classLevels = fs.readdirSync(classLevelPath);
         classLevels.forEach(classLevel => {

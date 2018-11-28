@@ -6,12 +6,12 @@ export class CourseList {
     private _item: Course[] = [];
 
     constructor(){
-        let classLinePattern: RegExp = /\d+ .*?\nhttps.*?\n/g;
-        let classInfoPattern: RegExp = /(\d+) (.*?)\n(https.*?)\n/;
+        let classLinePattern: RegExp = /\d+ .*?[\r|\n]{1}https.*[\r|\n]{0,1}/m;
+        let classInfoPattern: RegExp = /(\d+) (.*?)[\r|\n](https.*?)[\r|\n]/;
         let classLevelPath: string = `${path.resolve("")}//class-list`;
         let classLevels: string[] = fs.readdirSync(classLevelPath);
         
-        classLevels.forEach(classLevel => {
+        classLevels.forEach(classLevel => { 
             let level = classLevel.replace(".txt", "");
             let levelPath = `${path.resolve("")}/course/${level}`;
             if (!fs.existsSync(levelPath)) fs.mkdirSync(levelPath);

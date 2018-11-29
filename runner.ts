@@ -1,33 +1,26 @@
-import * as path from "path";
 import * as selenium from "selenium-webdriver";
-import * as chrome from "selenium-webdriver/chrome";
 
+import { Browser } from './module/browser';
+import { Course } from "./module/course";
 import { CourseList } from './module/course-list';
 
 class Runner{
-    private chromePath: string = path.resolve("../chrome");
-    private chromDriverPath: string = `${this.chromePath}/chromedriver.exe`;
+    constructor(){}
 
-    private driver: selenium.WebDriver;
-
-    constructor(){
-        chrome.setDefaultService(new chrome.ServiceBuilder(this.chromDriverPath).build());
-
-        this.driver = new selenium.Builder()
-                            .withCapabilities(selenium.Capabilities.chrome())
-                            .setChromeOptions(new chrome.Options().addArguments(`--user-data-dir=${path.resolve("../chrome")}`))
-                            .build();
+    public run(): void{
+        let courses = new CourseList().items;
+        let count = 0;
+        courses.forEach((value, key) => {
+            this.grab(new Browser(count).driver, value);
+            count ++;
+        });
     }
 
-    public async run(): Promise<void>{
-        //let courses = new CourseList().items;
-        let courses = new CourseList().items;
-        
+    private async grab(browser: selenium.WebDriver, courses: Course[]){
         for(let course of courses){
-            await course.resolve(this.driver);
+            await course.resolve(browser);
         }
-        
-        return new Promise<void>((reslove,reject) => reslove(this.driver.close()));
+        await browser.close();
     }
 }
 

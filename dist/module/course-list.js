@@ -5,7 +5,7 @@ const path = require("path");
 const course_1 = require("./course");
 class CourseList {
     constructor() {
-        this._item = [];
+        this._item = new Map();
         let classLinePattern = /\d+ .*?[\r|\n]{1}https.*[\r|\n]{0,1}/g;
         let classInfoPattern = /(\d+) (.*?)[\r|\n](https.*?)[\r|\n]/;
         let classLevelPath = `${path.resolve("")}//class-list`;
@@ -19,7 +19,7 @@ class CourseList {
             let classList = classListContent.match(classLinePattern);
             classList.forEach(classInfo => {
                 let courseInfo = classInfo.match(classInfoPattern);
-                this._item.push(new course_1.Course({
+                this.addItem(level, new course_1.Course({
                     level: level,
                     name: courseInfo[2],
                     url: courseInfo[3],
@@ -27,6 +27,15 @@ class CourseList {
                 }));
             });
         });
+    }
+    addItem(level, course) {
+        if (this._item.has(level))
+            this._item.get(level).push(course);
+        else {
+            let courses = new Array();
+            courses.push(course);
+            this._item.set(level, courses);
+        }
     }
     get items() {
         return this._item;

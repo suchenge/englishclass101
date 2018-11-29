@@ -16,22 +16,29 @@ export class Vocabulary extends Ware{
         let element: webdriver.WebElement = webElements[webElements.length - 1];
 
         element.findElements(webdriver.By.tagName("td")).then(tds => {
-            tds[2].findElement(webdriver.By.tagName("button")).then(button => {
-                button.getAttribute("data-src").then(mp3 => {
-                    tds[4].findElements(webdriver.By.tagName("span")).then(span => {
-                        span[0].getText().then(name => {
-                            this._name = Utilites.formatTitle(name).replace(/\(.*?\)/,"");
-                            this._url = mp3;
-                            
-                            let wordPath = path + this._name + "/";
-                            if (!fs.existsSync(wordPath)) fs.mkdirSync(wordPath);
-                            this._path = wordPath + this._name + ".mp3";
+            tds[2].getAttribute("innerHTML").then(html => {
+                if(html.trim() == "") this.getMp3(tds, 3, webElements, path, callback);
+                else this.getMp3(tds, 2, webElements, path, callback);
+            });
+        });
+    }
 
-                            this.save();
-                            
-                            if (span.length >= 4) this.extractExample(span, webElements, wordPath, path, callback);
-                            else this.exist(webElements, path, callback);
-                        });
+    private getMp3(tds: webdriver.WebElement[], index: number, webElements: webdriver.WebElement[], path:string, callback: any): void{
+        tds[index].findElement(webdriver.By.tagName("button")).then(button => {
+            button.getAttribute("data-src").then(mp3 => {
+                tds[4].findElements(webdriver.By.tagName("span")).then(span => {
+                    span[0].getText().then(name => {
+                        this._name = Utilites.formatTitle(name).replace(/\(.*?\)/,"");
+                        this._url = mp3;
+                        
+                        let wordPath = path + this._name + "/";
+                        if (!fs.existsSync(wordPath)) fs.mkdirSync(wordPath);
+                        this._path = wordPath + this._name + ".mp3";
+
+                        this.save();
+                        
+                        if (span.length >= 4) this.extractExample(span, webElements, wordPath, path, callback);
+                        else this.exist(webElements, path, callback);
                     });
                 });
             });

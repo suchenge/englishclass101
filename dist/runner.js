@@ -8,27 +8,24 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const path = require("path");
-const selenium = require("selenium-webdriver");
-const chrome = require("selenium-webdriver/chrome");
+const browser_1 = require("./module/browser");
 const course_list_1 = require("./module/course-list");
 class Runner {
-    constructor() {
-        this.chromePath = path.resolve("../chrome");
-        this.chromDriverPath = `${this.chromePath}/chromedriver.exe`;
-        chrome.setDefaultService(new chrome.ServiceBuilder(this.chromDriverPath).build());
-        this.driver = new selenium.Builder()
-            .withCapabilities(selenium.Capabilities.chrome())
-            .setChromeOptions(new chrome.Options().addArguments(`--user-data-dir=${path.resolve("../chrome")}`))
-            .build();
-    }
+    constructor() { }
     run() {
+        let courses = new course_list_1.CourseList().items;
+        let count = 0;
+        courses.forEach((value, key) => {
+            this.grab(new browser_1.Browser(count).driver, value);
+            count++;
+        });
+    }
+    grab(browser, courses) {
         return __awaiter(this, void 0, void 0, function* () {
-            let courses = new course_list_1.CourseList().items;
             for (let course of courses) {
-                yield course.resolve(this.driver);
+                yield course.resolve(browser);
             }
-            return new Promise((reslove, reject) => reslove(this.driver.close()));
+            yield browser.close();
         });
     }
 }

@@ -3,7 +3,7 @@ import * as path from "path";
 import { Course } from './course';
 
 export class CourseList {
-    private _item: Course[] = [];
+    private _item: Map<string, Course[]> = new Map<string, Course[]>();
 
     constructor(){
         let classLinePattern: RegExp = /\d+ .*?[\r|\n]{1}https.*[\r|\n]{0,1}/g;
@@ -20,17 +20,26 @@ export class CourseList {
             let classList: RegExpMatchArray = classListContent.match(classLinePattern);
             classList.forEach(classInfo => {
                 let courseInfo: RegExpMatchArray = classInfo.match(classInfoPattern);
-                this._item.push(new Course({
+                this.addItem(level, new Course({
                     level:level,
                     name:courseInfo[2],
                     url:courseInfo[3],
                     index:Number(courseInfo[1])
-                }));
+                }))
             });
         });
     }
 
-    public get items(): Course[]{
+    private addItem(level: string, course: Course): void{
+        if(this._item.has(level)) this._item.get(level).push(course);
+        else {
+            let courses: Course[] = new Array<Course>();
+            courses.push(course);
+            this._item.set(level, courses);
+        }
+    }
+
+    public get items(): Map<string, Course[]>{
         return this._item;
     }
 }

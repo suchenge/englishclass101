@@ -11,14 +11,23 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const browser_1 = require("./module/browser");
 const course_list_1 = require("./module/course-list");
 class Runner {
-    constructor() { }
+    constructor(paialler = false) {
+        this.paialler = paialler;
+    }
     run() {
         let courses = new course_list_1.CourseList().items;
-        let count = 0;
-        courses.forEach((value, key) => {
-            this.grab(new browser_1.Browser(count).driver, value);
-            count++;
-        });
+        if (paiallel) {
+            let count = 0;
+            courses.forEach(value => {
+                this.grab(new browser_1.Browser(count).driver, value);
+                count++;
+            });
+        }
+        else {
+            let allCourses = new Array();
+            courses.forEach(value => allCourses = allCourses.concat(value));
+            this.grab(new browser_1.Browser().driver, allCourses);
+        }
     }
     grab(browser, courses) {
         return __awaiter(this, void 0, void 0, function* () {
@@ -29,5 +38,6 @@ class Runner {
         });
     }
 }
+let paiallel = false;
 new Runner().run();
 //# sourceMappingURL=runner.js.map

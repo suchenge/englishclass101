@@ -8,36 +8,60 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+const fs = require("fs");
+const path = require("path");
 const browser_1 = require("./module/browser");
 const course_list_1 = require("./module/course-list");
 class Runner {
-    constructor(paialler = false) {
-        this.paialler = paialler;
+    constructor(paiallel = false, continuous = true) {
+        this.paiallel = paiallel;
+        this.continuous = continuous;
+        this.donePath = path.resolve("") + "/course/.done";
     }
     run() {
         let courses = new course_list_1.CourseList().items;
-        if (paiallel) {
+        let doneCourses = this.readDoneCourse();
+        if (this.paiallel) {
             let count = 0;
             courses.forEach(value => {
-                this.grab(new browser_1.Browser(count).driver, value);
+                this.grab(new browser_1.Browser(count).driver, value, doneCourses);
                 count++;
             });
         }
         else {
             let allCourses = new Array();
             courses.forEach(value => allCourses = allCourses.concat(value));
-            this.grab(new browser_1.Browser().driver, allCourses);
+            this.grab(new browser_1.Browser().driver, allCourses, doneCourses);
         }
     }
-    grab(browser, courses) {
+    grab(browser, courses, doneUrls = new Array()) {
         return __awaiter(this, void 0, void 0, function* () {
             for (let course of courses) {
+                if (doneUrls.some(url => url == course.url))
+                    continue;
                 yield course.resolve(browser);
+                if (this.continuous)
+                    this.removeCourse(course);
             }
             yield browser.close();
         });
     }
+    removeCourse(course) {
+        if (!fs.existsSync(this.donePath))
+            fs.createWriteStream(this.donePath);
+        fs.appendFileSync(this.donePath, "\n" + course.url);
+    }
+    readDoneCourse() {
+        let result = new Array();
+        if (!fs.existsSync(this.donePath))
+            return result;
+        let doneContent = fs.readFileSync(this.donePath, "utf-8");
+        if (doneContent == "")
+            return result;
+        return doneContent.split("\n").map(line => line);
+    }
 }
-let paiallel = false;
-new Runner().run();
+let paiallel = true;
+let continuous = true;
+new Runner(paiallel, continuous).run();
 //# sourceMappingURL=runner.js.map

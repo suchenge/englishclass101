@@ -5,20 +5,20 @@ const path = require("path");
 const course_1 = require("./course");
 class CourseList {
     constructor() {
-        this._item = new Map();
-        let classLinePattern = /\d+ .*?[\r|\n]{1}https.*[\r|\n]{0,1}/g;
-        let classInfoPattern = /(\d+) (.*?)[\r|\n](https.*?)[\r|\n]/;
-        let classLevelPath = `${path.resolve("")}//class-list`;
-        let classLevels = fs.readdirSync(classLevelPath);
-        classLevels.forEach(classLevel => {
-            let level = classLevel.replace(".txt", "");
+        this._items = new Map();
+        let courseLinePattern = /\d+ .*?[\r|\n]{1}https.*[\r|\n]{0,1}/g;
+        let courseInfoPattern = /(\d+) (.*?)[\r|\n](https.*?)[\r|\n]/;
+        let courseLevelsPath = `${path.resolve("")}//course`;
+        let courseLevels = fs.readdirSync(courseLevelsPath);
+        courseLevels.filter(file => file.endsWith(".txt")).forEach(courseLevel => {
+            let level = courseLevel.replace(".txt", "");
             let levelPath = `${path.resolve("")}/course/${level}`;
             if (!fs.existsSync(levelPath))
                 fs.mkdirSync(levelPath);
-            let classListContent = fs.readFileSync(`${classLevelPath}//${classLevel}`, 'utf-8');
-            let classList = classListContent.match(classLinePattern);
-            classList.forEach(classInfo => {
-                let courseInfo = classInfo.match(classInfoPattern);
+            let courseListContent = fs.readFileSync(`${courseLevelsPath}//${courseLevel}`, 'utf-8');
+            let courseList = courseListContent.match(courseLinePattern);
+            courseList.forEach(courseContent => {
+                let courseInfo = courseContent.match(courseInfoPattern);
                 this.addItem(level, new course_1.Course({
                     level: level,
                     name: courseInfo[2],
@@ -29,16 +29,16 @@ class CourseList {
         });
     }
     addItem(level, course) {
-        if (this._item.has(level))
-            this._item.get(level).push(course);
+        if (this._items.has(level))
+            this._items.get(level).push(course);
         else {
             let courses = new Array();
             courses.push(course);
-            this._item.set(level, courses);
+            this._items.set(level, courses);
         }
     }
     get items() {
-        return this._item;
+        return this._items;
     }
 }
 exports.CourseList = CourseList;

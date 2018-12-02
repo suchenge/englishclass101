@@ -6,3 +6,4 @@ course
 !course/.done
 bak
 dist
+*.log

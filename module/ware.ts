@@ -4,6 +4,7 @@ import * as URL from "url";
 
 import { Course } from './course';
 import { Utilites } from './utilites';
+import { Log, LogType } from './log';
 
 export class Ware {
     protected _name: string;
@@ -28,11 +29,15 @@ export class Ware {
         if (fs.existsSync(path)) return;
             //fs.unlinkSync(path);
 
-        console.log("=====================================================================================\ndownload:" + this._url);
-
-        let fileBody = Utilites.getUrl(this._url);
+        console.log("-----------------------------------------------------------------------------------------\ndownload:" + this._url);
+        try{
+            let fileBody = Utilites.getUrl(this._url);
         
-        fs.writeFileSync(path, fileBody);
-        console.log("save:" + path);
+            fs.writeFileSync(path, fileBody);
+            console.log("save:" + path);
+        }catch(ex){
+            console.log("download error!");
+            Log.write(LogType.TimeOut, JSON.stringify({url: this._url, filePath: path}, null, 4));
+        }
     }
 }

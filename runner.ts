@@ -55,7 +55,7 @@ class Runner{
     }
 }
 
-let paiallel: boolean = true;
+let paiallel: boolean = false;
 let continuous: boolean = true;
 new Runner(paiallel, continuous).run();
 

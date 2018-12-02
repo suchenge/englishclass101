@@ -61,7 +61,7 @@ class Runner {
         return doneContent.split("\n").map(line => line);
     }
 }
-let paiallel = true;
+let paiallel = false;
 let continuous = true;
 new Runner(paiallel, continuous).run();
 //# sourceMappingURL=runner.js.map

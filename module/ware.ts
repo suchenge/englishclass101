@@ -28,8 +28,8 @@ export class Ware {
         if (!this._url.startsWith("http")) this._url = this._domanin + this._url;
         if (fs.existsSync(path)) return;
             //fs.unlinkSync(path);
-
         console.log("-----------------------------------------------------------------------------------------\ndownload:" + this._url);
+        
         try{
             let fileBody = Utilites.getUrl(this._url);
         

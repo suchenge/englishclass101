@@ -5,6 +5,7 @@ import * as selenium from "selenium-webdriver";
 import { Browser } from './module/browser';
 import { Course } from "./module/course";
 import { CourseList } from './module/course-list';
+import { TimeOutAddition } from "./module/timeout-addition";
 
 class Runner{
     constructor(private paiallel: boolean = false
@@ -57,5 +58,6 @@ class Runner{
 
 let paiallel: boolean = false;
 let continuous: boolean = true;
-new Runner(paiallel, continuous).run();
+//new Runner(paiallel, continuous).run();
+new TimeOutAddition().removeToCourse();
 

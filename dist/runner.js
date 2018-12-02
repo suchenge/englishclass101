@@ -12,6 +12,7 @@ const fs = require("fs");
 const path = require("path");
 const browser_1 = require("./module/browser");
 const course_list_1 = require("./module/course-list");
+const timeout_addition_1 = require("./module/timeout-addition");
 class Runner {
     constructor(paiallel = false, continuous = true) {
         this.paiallel = paiallel;
@@ -63,5 +64,5 @@ class Runner {
 }
 let paiallel = false;
 let continuous = true;
-new Runner(paiallel, continuous).run();
+new timeout_addition_1.TimeOutAddition().removeToCourse();
 //# sourceMappingURL=runner.js.map

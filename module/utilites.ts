@@ -42,7 +42,7 @@ export class Utilites{
             timeout: 10000,
             retry: true,
             retryDelay: 10000,
-            maxRetries: 3
+            maxRetries: 1
         });
         if (res.statusCode == 200) {
             let body = res.body;

@@ -58,6 +58,6 @@ class Runner{
 
 let paiallel: boolean = false;
 let continuous: boolean = true;
-//new Runner(paiallel, continuous).run();
-new TimeOutAddition().removeToCourse();
+new Runner(paiallel, continuous).run();
+//new TimeOutAddition().removeToCourse();
 

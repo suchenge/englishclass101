@@ -17,13 +17,17 @@ export class TimeOutAddition{
     private _timeOutLogPath: string = path.resolve("timeout.log");
 
     constructor(){
-        let logContent = fs.readFileSync(this._timeOutLogPath, "utf-8");
-        let logs = logContent.match(/\{.*?\}/gs);
+        if (fs.existsSync(this._timeOutLogPath)){
 
-        this._items = logs.map(log => {
-            let logObj = JSON.parse(log);
-            return new TimeOutItem(logObj.url, logObj.filePath);
-        })
+            let logContent = fs.readFileSync(this._timeOutLogPath, "utf-8");
+            let logs = logContent.match(/\{.*?\}/gs);
+
+            this._items = logs.map(log => {
+                let logObj = JSON.parse(log);
+                return new TimeOutItem(logObj.url, logObj.filePath);
+            })
+
+        }
     }
 
     public removeToCourse(): void{

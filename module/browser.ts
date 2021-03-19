@@ -14,6 +14,14 @@ export class Browser{
         return new selenium.Builder()
                            .forBrowser("chrome")
                            .setChromeService(new chrome.ServiceBuilder(this.chromeDriverPath))
-                           .setChromeOptions(new chrome.Options().addArguments(`--user-data-dir=${this.chromePath}/${this.index}`)).build();
+                           .setChromeOptions(
+                                                new chrome.Options().addArguments(`--user-data-dir=${this.chromePath}/${this.index}`)
+                                                                    .addArguments('--no-sandbox')
+                                                                    .addArguments('--disable-dev-shm-usage')
+                                                                    .addArguments('blink-settings=imagesEnabled=false')
+                                                                    .addArguments('--headless')
+                                                                    .addArguments('--disable-gpu')
+                                            )
+                            .build();
     }
 }
